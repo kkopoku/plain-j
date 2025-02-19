@@ -32,7 +32,7 @@ pip install fastapi uvicorn openai
 ### **1. Start the API**
 Run the FastAPI server:
 ```sh
-uvicorn app:app --reload
+uvicorn main:app --reload
 ```
 
 ### **2. Send a Request**
