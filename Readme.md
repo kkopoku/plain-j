@@ -1,4 +1,4 @@
-# Financial Text-to-JSON API
+# Financial Plain Text-to-JSON API
 
 ## Overview
 This API extracts structured financial transaction details from text inputs. Given a natural language instruction like *"Send 50GHS to 233256619388 on MTN"*, the API returns a JSON object with the following fields:
