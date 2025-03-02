@@ -33,7 +33,7 @@ Ensure **Python 3.7+** is installed, then clone this repository and install depe
 ```sh
 python -m venv .venv
 source .venv/bin/activate  # Windows: .venv\Scripts\activate
-pip install fastapi uvicorn openai
+pip install -r requirements.txt
 ```
 
 ---
