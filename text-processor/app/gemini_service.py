@@ -19,7 +19,7 @@ def process_text(text: str) -> str:
             Rules:
             1. If all three parameters (`to`, `mno`, and `amount`) can be accurately extracted, return a properly formatted JSON object.
             2. If any of the parameters are missing or unclear or null, return NULL instead instead of JSON. Make sure you all parameters are extracted else return NULL.
-            3. Only process messages related to sending money. If the text is unrelated, return NULL.
+            3. Only process messages related to sending money. If the text is unrelated, return UNRELATED.
 
             Here is the JSON properties data structure to=string mno=string amount=number
 
@@ -30,12 +30,18 @@ def process_text(text: str) -> str:
         print(response)
 
 
-        final = ""
+        final = {}
         if response.text == "NULL" or response.text == None or response.text == "NULL\n":
             final = {
                 "transfer": "null",
                 "success": False,
-                "message": "Invalid prompt. Please ensure your input relates to a transaction and includes all required parameters (e.g., recipient phone number, mobile network operator, and transaction amount)."
+                "message": "Invalid prompt. Invalid prompt. Missing phone number, operator, or amount."
+            }
+        elif response.text == "UNRELATED\n":
+            final = {
+                "transfer": "null",
+                "success": False,
+                "message": "Invalid prompt. The text entered is unrelated to performing a momo transaction"
             }
         else: 
 
